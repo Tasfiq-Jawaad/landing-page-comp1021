@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: white;
+    /* adding font stack for browser and system support */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --primary-spacing: 5rem;
+    --secondary-spacing: 2.5rem;
+    --primary-color: #15141a;
+    
+}
+
+html {
+    
+}
+
+body {
+    background-color: var(--primary-color);
+    
+    /* This is to handle large screens */
+    max-height: 1920px;
+    margin: auto;
+}
+
+header {
+    /* using svh instead of vh to avoid layout shift for mobile view */
+    height: 100svh;
+
+    /* making it flex to allow the banner section to grow to fill up the space
+    while keeping the height to be 100sv */
+    display: flex;
+    flex-direction: column;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    width: 300px; 
+    height: 300px; 
+    background-color: #5D3587; 
+    /* background: rgb(2,0,36); */
+    
+    z-index: -1;
+    border-radius: 100%;
+    top: -80px;
+    left: -75px;
+    filter: blur(300px);
+}
+
+header::after {
+content: "";
+position: absolute;
+width: 800px;
+height: 300px; 
+background-color: #e16ee580; 
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(193, 32, 185, 0.89) 0%, rgba(143,0,255,0.8) 55%);
+z-index: -1;
+border-radius: 100%;
+bottom: -80px;
+/* left: -75px; */
+filter: blur(300px);
+opacity: 70%;
+
+}
+
+.wrapper {
+    padding-inline: var(--primary-spacing);
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    flex: 0;
+}
+
+/* The Child combinator (>) will select all the direct child only */
+nav > * {
+    flex-grow: 1;
+    flex-basis: 50%;
+}
+
+#logo {
+    width: 200px;
+}
+
+#nav-links{
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    /* transform: translateX(-50%); */
+    justify-content: end;
+}
+
+.banner-container {
+    /* height: 100%; */
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    /* position: relative; */
+}
+
+
+
+#banner-article {
+    /* padding-block: var(--primary-spacing); */
+
+    /* translating it to make it visually centered of it's parent div rather than it's 
+    own container */
+    transform: translateY(-10%);
+}
+
+h1{
+    font-size: 4.5rem;
+    /* margin-bottom: var(--secondary-spacing); */
+}
+
+#banner-article > p {
+    font-size: 2rem
+}
+
+#banner-article > *:not(:last-child){
+    margin-bottom: var(--secondary-spacing);
+}
+
+#banner-card > img {
+    width: 500px;
+    height: 500px;
+}
+
+#banner-card::before{
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background-image: linear-gradient(45deg,#3023AE 0%,#FF0099 100%);
+    border-radius: 45% 55% 30% 70% / 33% 33% 67% 67% ;
+    filter: blur(100px);
+    top: 150px;
+    right: 150px;
+    z-index: -1;
+}
+
+.border {
+    border: 2px solid red;
+}
