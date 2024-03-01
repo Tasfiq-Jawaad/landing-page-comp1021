@@ -315,7 +315,7 @@
 }
 
 
-/* @keyframes cube-rotate-anti-clock{
+@keyframes cube-rotate-anti-clock{
     0%
     {
         transform: rotateX(-30deg) rotateY(0deg);
@@ -335,7 +335,7 @@
     {
         transform: rotateX(-30deg) rotateY(360deg);
     }
-} */
+}
 
 
 @media screen and (min-width: 1400px) {
