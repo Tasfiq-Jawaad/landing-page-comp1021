@@ -1,0 +1,23 @@
+#about-container{
+    display: flex;
+    gap: 62px;
+}
+
+#about-container > *{
+    flex-grow: 1;
+}
+
+#who-we-are-container > h2{
+    font-size: 4rem;
+    margin-bottom: 4rem;
+}
+
+#who-we-are-container > p{
+    font-size: 2rem;
+    margin-bottom: 4rem;
+}
+
+
+#about-container > img{
+    width: 100%;
+}

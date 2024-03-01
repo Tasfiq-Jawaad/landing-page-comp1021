@@ -1,0 +1,148 @@
+#contact-container{
+    display: flex;
+    gap: 62px;
+}
+
+#contact-container > *{
+    flex-grow: 1;
+}
+
+label{
+    font-size: 2rem;
+}
+
+form{
+    /* max-width: max-content; */
+    padding: var(--secondary-spacing);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(40px);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+form > input, form > textarea{
+    padding: 0.5rem;
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+form > input, form > label, form > textarea{
+    display: block;
+}
+
+form > *:not(:last-child){
+    margin-bottom: 1rem;
+}
+
+#contact-details-container > p{
+    font-size: 4rem;
+    margin-bottom: 4rem;
+}
+
+#contact-details{
+    flex-grow: 1;
+    text-align: justify;
+}
+
+#contact-details > p{
+    font-size: 4rem;
+}
+
+#contact-details:has(.fancy:hover) .word:not(.fancy:hover){
+    opacity: 0.2;
+}
+
+#contact-details:has(.fancy:hover) .word:is(.fancy:hover) span{
+    /* opacity: 0.2; */
+    /* animation: rotate 1s timing-function delay iteration-count direction fill-mode; */
+}
+
+.fancy > span{
+    display: inline-block;
+    transition: transform 350ms ease;
+}
+
+.fancy:hover > span:nth-child(1){
+    transform: translate(-80%, 60%) rotate(8deg);
+}
+
+.fancy:hover > span:nth-child(2){
+    transform: translate(-40%, 20%) rotate(4deg);
+}
+
+.fancy:hover > span:nth-child(3){
+    transform: translate(-10%, 60%) rotate(-6deg);
+}
+
+.fancy:hover > span:nth-child(4){
+    transform: translate(0%, 8%) rotate(-8deg);
+}
+
+.fancy:hover > span:nth-child(5){
+    transform: translate(0%, -20%) rotate(5deg);
+}
+
+.fancy:hover > span:nth-child(6){
+    transform: translate(0%, 20%) rotate(-3deg);
+}
+
+.fancy:hover > span:nth-child(7){
+    transform: translate(0%, -30%) rotate(-5deg);
+}
+
+.fancy:hover > span:nth-child(8){
+    transform: translate(0%, 15%) rotate(10deg);
+}
+
+.fancy:hover > span:nth-child(9){
+    transform: translate(0%, -30%) rotate(8deg);
+}
+
+.fancy:hover > span:nth-child(10){
+    transform: translate(0%, 15%) rotate(-6deg);
+}
+
+.fancy:hover > span:nth-child(11){
+    transform: translate(0%, 20%) rotate(4deg);
+}
+
+.fancy:hover > span:nth-child(12){
+    transform: translate(0%, 30%) rotate(-2deg);
+}
+
+.fancy:hover > span:nth-child(13){
+    transform: translate(0%, 2%) rotate(4deg);
+}
+
+.fancy:hover > span:nth-child(14){
+    transform: translate(0%, 30%) rotate(-5deg);
+}
+
+.fancy:hover > span:nth-child(15){
+    transform: translate(0%, -10%) rotate(-2deg);
+}
+
+.fancy:hover > span:nth-child(16){
+    transform: translate(0%, 30%) rotate(3deg);
+}
+
+.fancy:hover > span:nth-child(17){
+    transform: translate(0%, 15%) rotate(-1deg);
+}
+
+.fancy:hover > span:nth-child(18){
+    transform: translate(0%, -15%) rotate(0deg);
+}
+
+.fancy:hover > span:nth-child(19){
+    transform: translate(-20%, 30%) rotate(-5deg);
+}
+
+.fancy > span:nth-child(20){
+    transform: translate(15%, 15%) rotate(-2deg);
+}
+
+.space{
+    margin-right: 1ch;
+}

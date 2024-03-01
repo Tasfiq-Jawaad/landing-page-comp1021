@@ -1,0 +1,29 @@
+#project-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#project-container > h2{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+#projects-details-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+}
+
+.project-card {
+  width: 312px;
+}
+
+.project-card > img{
+  width: 100%;
+}
+
+.project-card > p{
+  font-size: 1.5rem;
+}

@@ -1,0 +1,19 @@
+#client-container{
+    display: flex;
+    justify-content: center;
+}
+
+#client-container > h2{
+    font-size: 2rem;
+}
+
+table.customTable td, table.customTable th {
+    border-width: 2px;
+    border-color: #a37ef8;
+    border-style: solid;
+    padding: 5px;
+  }
+  
+  table.customTable thead {
+    background-color: #a37ef8;
+  }
