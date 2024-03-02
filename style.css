@@ -52,7 +52,6 @@
 #banner-card {
     position: relative;
     bottom: 120px;
-    /* right: 125px; */
     padding: var(--secondary-spacing);
     font-size: 1.5rem;
     width: 312px;
@@ -111,6 +110,9 @@
 
 #cube-container{
     width: 100svw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cube-1{
@@ -119,15 +121,15 @@
     width: var(--size);
     height: var(--size);
     top: calc(-1 * var(--size));
-    left: calc(var(--size));
+    left: calc(-3 * var(--size));
     transform-style: preserve-3d;
-    transform: rotateX(-30deg);
+    transform: rotateX(-30deg) rotateY(30deg);
     animation: cube-rotate-anti-clock 25s linear infinite;
 
 }
 
 .cube-1 > div {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -136,7 +138,8 @@
 }
 
 .cube-1 > div > span {
-    position: absolute;
+    position: relative;
+    display: block;
     top: 0;
     left: 0;
     width: 100%;
@@ -145,8 +148,28 @@
     transform: rotateY(calc(90deg * var(--i))) translateZ(calc(var(--size)/2));
 }
 
+.cube-1 .side-1{
+    top: -50px;
+    
+}
+
+.cube-1 .side-2{
+    top: -100px;
+    left: 0px;
+}
+
+.cube-1 .side-3{
+    top: -150px;
+    left: 0px;
+}
+
+.cube-1 .side-4{
+    top: -200px;
+    left: 0px;
+}
+
 .cube-1-top{
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: var(--size);
@@ -173,16 +196,15 @@
     position: relative;
     width: var(--size);
     height: var(--size);
-    top: calc(-1 * (var(--size)) *1.5);
-    left: calc(var(--size) * 2);
+    top: calc(-1 * var(--size));
     transform-style: preserve-3d;
-    transform: rotateX(-30deg);
+    transform: rotateX(-30deg) rotateY(30deg);
     animation: cube-rotate-clock 25s linear infinite;
 }
 
 
 .cube-2 > div {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -190,8 +212,14 @@
     transform-style: preserve-3d;
 }
 
+.cube-2-top{
+    background: #222;
+    transform: rotateX(90deg) translateZ(calc(var(--size)/2));
+}
+
 .cube-2 > div > span {
-    position: absolute;
+    position: relative;
+    display: block;
     top: 0;
     left: 0;
     width: 100%;
@@ -200,15 +228,26 @@
     transform: rotateY(calc(90deg * var(--i))) translateZ(calc(var(--size)/2));
 }
 
-.cube-2-top{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: var(--size);
-    height: var(--size);
-    background: #222;
-    transform: rotateX(90deg) translateZ(calc(var(--size)/2));
+.cube-2 .side-1{
+    top: -70px;
+    
 }
+
+.cube-2 .side-2{
+    top: -140px;
+    left: 0px;
+}
+
+.cube-2 .side-3{
+    top: -210px;
+    left: 0px;
+}
+
+.cube-2 .side-4{
+    top: -280px;
+    left: 0px;
+}
+
 
 .cube-2-top::before{
     content: '';
@@ -228,15 +267,15 @@
     position: relative;
     width: var(--size);
     height: var(--size);
-    left: calc(var(--size) * 1.6);
+    left: calc(var(--size));
     transform-style: preserve-3d;
-    transform: rotateX(-30deg);
+    transform: rotateX(-30deg) rotateY(30deg);
     animation: cube-rotate-clock 25s linear infinite;
 }
 
 
 .cube-3 > div {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -245,7 +284,8 @@
 }
 
 .cube-3 > div > span {
-    position: absolute;
+    position: relative;
+    display: block;
     top: 0;
     left: 0;
     width: 100%;
@@ -254,8 +294,28 @@
     transform: rotateY(calc(90deg * var(--i))) translateZ(calc(var(--size)/2));
 }
 
+.cube-3 .side-1{
+    top: -100px;
+    
+}
+
+.cube-3 .side-2{
+    top: -200px;
+    left: 0px;
+}
+
+.cube-3 .side-3{
+    top: -300px;
+    left: 0px;
+}
+
+.cube-3 .side-4{
+    top: -400px;
+    left: 0px;
+}
+
 .cube-3-top{
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: var(--size);
@@ -283,6 +343,7 @@
 
 .company-section-container{
     width: 100%;
+    margin-top: 100px;
 }
 
 .company-container{
@@ -298,13 +359,14 @@
 }
 
 .company-card> *:not(:last-child){
-    margin-bottom: var(--secondary-spacing);
+    margin-bottom: var(--primary-spacing);
 }
 
 .image-wrapper{
-    width: 200px;
+    width: 100%;
     height: 200px;
     display: flex;
+    justify-content: center;
 }
 
 .image-wrapper > img{
@@ -315,69 +377,68 @@
 }
 
 
-@keyframes cube-rotate-anti-clock{
-    0%
-    {
-        transform: rotateX(-30deg) rotateY(0deg);
+/* for accessability, adding animations only if its not disabled */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes cube-rotate-anti-clock{
+        0%
+        {
+            transform: rotateX(-30deg) rotateY(30deg);
+        }
+        100%
+        {
+            transform: rotateX(-30deg) rotateY(390deg);
+        }
     }
-    100%
-    {
-        transform: rotateX(-30deg) rotateY(360deg);
-    }
-}
-
-@keyframes cube-rotate-clock{
-    100%
-    {
-        transform: rotateX(-30deg) rotateY(0deg);
-    }
-    0%
-    {
-        transform: rotateX(-30deg) rotateY(360deg);
-    }
-}
-
-
-@media screen and (min-width: 1400px) {
-    .header {
-        /* using svh instead of vh to avoid layout shift for mobile view */
-        height: 100svh;
     
-        /* making it flex to allow the banner section to grow to fill up the space
-        while keeping the height to be 100sv */
-        display: flex;
-        flex-direction: column;
+    @keyframes cube-rotate-clock{
+        100%
+        {
+            transform: rotateX(-30deg) rotateY(30deg);
+        }
+        0%
+        {
+            transform: rotateX(-30deg) rotateY(390deg);
+        }
     }
+}
+
+
+@media screen and (min-width: 576px) {
+    
+    #banner-card-container img{
+        width: 80%;
+    }
+    
+    #banner-card {
+        bottom: 250px;
+    }
+    
+    #banner-card button{
+        position: relative;
+        z-index: 1;
+        left: calc(312px - 250px);
+    }
+    
+    .company-container{
+        gap: 4rem;
+    }
+}
+
+@media screen and (min-width: 996px) {
     
     .banner-container {
-        /* height: 100%; */
-        flex-grow: 1;
-        display: flex;
+        flex-direction: row;
         align-items: center;
-        /* position: relative; */
     }
     
-    #banner-article {
-        /* padding-block: var(--primary-spacing); */
-    
-        /* translating it to make it visually centered of it's parent div rather than it's 
-        own container */
-        transform: translateY(-10%);
+    #banner-card-container img{
+        width: 100%;
     }
     
-    h1{
-        font-size: 4.5rem;
-        /* margin-bottom: var(--secondary-spacing); */
+    #banner-card-container p{
+        font-size: var(--regular-font-size);
     }
-    
-    #banner-article > p {
-        font-size: 2rem
-    }
-    
-    #banner-article > *:not(:last-child){
-        margin-bottom: var(--secondary-spacing);
-    }
-    
+
     #banner-card-container {
         flex-basis: 40vw;
         flex-shrink: 0;
@@ -385,28 +446,16 @@
         padding-right: var(--primary-spacing);
     }
     
-    
     #banner-card-container::before{
-        content: "";
-        position: absolute;
-        width: 600px;
-        height: 600px;
-        background-image: linear-gradient(45deg,#3023AE 0%,#FF0099 100%);
-        border-radius: 45% 55% 30% 70% / 33% 33% 67% 67% ;
-        filter: blur(100px);
-        top: 150px;
-        right: 150px;
-        z-index: -1;
+        width: 400px;
     }
     
     #banner-card {
-        position: absolute;
-        bottom: -70px;
-        right: 125px;
+        position: relative;
+        bottom: 120px;
         padding: var(--secondary-spacing);
         font-size: 1.5rem;
-        /* width: 350px; */
-        /* height: 350px; */
+        width: 312px;
         background-color: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(40px);
         border-radius: 20px;
@@ -423,262 +472,132 @@
         text-align: center;
     }
     
-    
-    .border {
-        border: 2px solid red;
-    }
-    
-    .cube-1{
-        --size: 100px;
+    #banner-card button{
         position: relative;
-        width: var(--size);
-        height: var(--size);
-        left: 100px;
-        transform-style: preserve-3d;
-        transform: rotateX(-30deg);
-        animation: cube-rotate-anti-clock 25s linear infinite;
-    
+        z-index: 1;
+        left: calc(312px - 250px);
     }
-    
-    .cube-1 > div {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-    }
-    
-    .cube-1 > div > span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient( rgba(21,21,21,1) 0%, rgba(19,38,19,1) 17%, rgba(17,61,17,1) 37%, rgba(14,90,14,1) 61%, rgba(12,115,12,1) 80%, rgba(10,137,10,1) 91%, rgba(6,181,6,1) 97%, rgba(0,236,0,1) 100%);
-        transform: rotateY(calc(90deg * var(--i))) translateZ(calc(var(--size)/2));
-    }
-    
-    .cube-1-top{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: var(--size);
-        height: var(--size);
-        background: #222;
-        transform: rotateX(90deg) translateZ(calc(var(--size)/2));
-    }
-    
-    .cube-1-top::before{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: var(--size);
-        height: var(--size);
-        background-color: #0f0;
-        transform: translateZ(calc(-1 * (var(--size) + 50px)));
-        filter: blur(20px);
-        box-shadow: 0 0 120px rgba(0, 255, 0, 0.2), 0 0 200px rgba(0, 255, 0, 0.4), 0 0 300px rgba(0, 255, 0, 0.6), 0 0 400px rgba(0, 255, 0, 0.8), 0 0 500px rgba(0, 255, 0, 1)
-    }
-    
-    .cube-2{
-        --size: 80px;
-        position: relative;
-        width: var(--size);
-        height: var(--size);
-        left: 350px;
-        transform-style: preserve-3d;
-        transform: rotateX(-30deg);
-        animation: cube-rotate-clock 25s linear infinite;
-    }
-    
-    
-    .cube-2 > div {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-    }
-    
-    .cube-2 > div > span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(21,21,21,1) 0%, rgba(58,17,30,1) 17%, rgba(101,13,41,1) 37%, rgba(152,8,54,1) 61%, rgba(193,4,64,1) 80%, rgba(217,2,70,1) 91%, rgba(230,1,73,1) 97%, rgba(236,0,74,1) 100%);
-        transform: rotateY(calc(90deg * var(--i))) translateZ(calc(var(--size)/2));
-    }
-    
-    .cube-2-top{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: var(--size);
-        height: var(--size);
-        background: #222;
-        transform: rotateX(90deg) translateZ(calc(var(--size)/2));
-    }
-    
-    .cube-2-top::before{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: var(--size);
-        height: var(--size);
-        background-color: rgb(255, 0, 55);
-        transform: translateZ(calc(-1 * (var(--size) + 50px)));
-        filter: blur(20px);
-        box-shadow: 0 0 120px rgba(255, 0, 55, 0.2), 0 0 200px rgba(255, 0, 55, 0.4), 0 0 300px rgba(255, 0, 55, 0.6), 0 0 400px rgba(255, 0, 55, 0.8), 0 0 500px rgba(255, 0, 55, 1);
-    }
-    
-    .cube-3{
-        --size: 150px;
-        position: relative;
-        width: var(--size);
-        height: var(--size);
-        left: 400px;
-        transform-style: preserve-3d;
-        transform: rotateX(-30deg);
-        animation: cube-rotate-clock 25s linear infinite;
-    }
-    
-    
-    .cube-3 > div {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-    }
-    
-    .cube-3 > div > span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(21,21,21,1) 0%, rgba(17,35,58,1) 17%, rgba(13,51,101,1) 37%, rgba(8,70,152,1) 61%, rgba(4,86,193,1) 80%, rgba(2,95,217,1) 91%, rgba(1,100,230,1) 97%, rgba(0,102,236,1) 100%);
-        transform: rotateY(calc(90deg * var(--i))) translateZ(calc(var(--size)/2));
-    }
-    
-    .cube-3-top{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: var(--size);
-        height: var(--size);
-        background: #222;
-        transform: rotateX(90deg) translateZ(calc(var(--size)/2));
-    }
-    
-    .cube-3-top::before{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: var(--size);
-        height: var(--size);
-        background-color: rgba(0, 81, 255, 1);
-        transform: translateZ(calc(-1 * (var(--size) + 50px)));
-        filter: blur(20px);
-        box-shadow: 0 0 120px rgba(0, 81, 255, 0.2), 0 0 200px rgba(0, 81, 255, 0.4), 0 0 300px rgba(0, 81, 255, 0.6), 0 0 400px rgba(0, 81, 255, 0.8), 0 0 500px rgba(0, 81, 255, 1);
-    }
-    
+
     #pieces-container {
-        position: relative;
-        display: flex;
+        flex-direction: row;
         align-items: center;
     }
     
     #pieces-container h2{
-        font-size: 4.5rem;
-        margin-bottom: var(--secondary-spacing);
+        font-size: 4rem;
     }
     
     #pieces-container p{
         font-size: 2rem;
-        text-align: justify;
-    }
-    
-    #pieces-container::before {
-        content: "";
-        position: absolute;
-        width: 700px;
-        height: 400px;
-        background-color: #FF0099;
-        /* transform: skewY(10deg) skewX(100deg); */
-        border-radius: 88% 6% 77% 22% / 57% 6% 84% 29%  ;
-        background-image: linear-gradient(-225deg,#FFFFFF 0%,rgba(255,255,255,0) 40%,rgba(0,255,255,0) 60%,#0ff 100%),linear-gradient(45deg,#5423ae 0%,#b700ff 100%);
-        right: 10px;
-        top: calc(var(--primary-spacing) + 400px);
-        filter: blur(100px) brightness(80%);
-        z-index: -1;
     }
     
     #pieces-container > *{
         flex: 1;
     }
     
-    .company-section-container{
-        width: 100%;
+}
+
+@media screen and (min-width: 1400px) {
+    *{
+        --primary-heading-font-size: 5rem;
+    }
+
+    .banner-container{
+        margin-top: 0;
+    }
+    #banner-article {
+        /* translating it to make it visually centered of it's parent div rather than it's 
+        own container */
+        transform: translateY(-50%);
+    }
+
+    #banner-article > h1 {
+        font-size: var(--primary-heading-font-size);
     }
     
-    .company-container{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 8rem;
+    #banner-article > p {
+        font-size: 2rem
     }
     
-    .company-card{
-        width: 280px;
+    #banner-card {
+        bottom: 200px;
+        right: -100px;
+    }
+
+    #pieces-container{
+        margin-top: 0;
     }
     
-    .company-card> *:not(:last-child){
-        margin-bottom: var(--secondary-spacing);
+    .cube-1{
+        --size: 100px;
+    }
+
+    .cube-1 .side-1{
+        top: -100px;
+        
     }
     
-    .image-wrapper{
-        width: 200px;
-        height: 200px;
-        display: flex;
+    .cube-1 .side-2{
+        top: -200px;
+        left: 0px;
     }
     
-    .image-wrapper > img{
-        margin: auto;
-        display: block;
-        width: 200px;
-        max-height: 200px;
+    .cube-1 .side-3{
+        top: -300px;
+        left: 0px;
     }
     
-    
-    @keyframes cube-rotate-anti-clock{
-        0%
-        {
-            transform: rotateX(-30deg) rotateY(0deg);
-        }
-        100%
-        {
-            transform: rotateX(-30deg) rotateY(360deg);
-        }
+    .cube-1 .side-4{
+        top: -400px;
+        left: 0px;
     }
     
-    @keyframes cube-rotate-clock{
-        100%
-        {
-            transform: rotateX(-30deg) rotateY(0deg);
-        }
-        0%
-        {
-            transform: rotateX(-30deg) rotateY(360deg);
-        }
+    .cube-2{
+        --size: 80px;
+    }
+
+    .cube-2 .side-1{
+        top: -80px;
+        
+    }
+    
+    .cube-2 .side-2{
+        top: -160px;
+        left: 0px;
+    }
+    
+    .cube-2 .side-3{
+        top: -240px;
+        left: 0px;
+    }
+    
+    .cube-2 .side-4{
+        top: -320px;
+        left: 0px;
+    }
+    
+    .cube-3{
+        --size: 150px;
+    }
+
+    .cube-3 .side-1{
+        top: -150px;
+        
+    }
+    
+    .cube-3 .side-2{
+        top: -300px;
+        left: 0px;
+    }
+    
+    .cube-3 .side-3{
+        top: -450px;
+        left: 0px;
+    }
+    
+    .cube-3 .side-4{
+        top: -600px;
+        left: 0px;
     }
 }
 

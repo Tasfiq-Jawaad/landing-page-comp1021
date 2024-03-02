@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="contact.css" />
-    <title>Document</title>
+    <title>Contact us - Aesthetic Arch</title>
   </head>
   <body>
     <header>
@@ -20,14 +20,14 @@
         <ul id="nav-links">
           <li><a href="/index.html" target="_self">Home</a></li>
           <li><a href="/about.html" target="_self">About</a></li>
-          <li><a href="" target="_self">Our projects</a></li>
-          <li><a href="http://" target="_self">Blog</a></li>
-          <li><a href="/contact-us.html" target="_self">Contact us</a></li>
+          <li><a href="/projects.html" target="_self">Projects</a></li>
+          <li><a href="/clients.html" target="_self">Clients</a></li>
+          <li><a class="active-page" href="/contact-us.html" target="_self">Contact</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <section class="container wrapper" id="contact-container">
+      <section class="wrapper" id="contact-container">
         <form class="">
           <label for="name">Name</label>
           <input required="true" type="text" name="name" placeholder="Name" />
@@ -56,13 +56,15 @@
             placeholder="Message"
           ></textarea
           >
-          <button class="button-primary" type="submit" href="">
+          <button aria-label="Send Message" class="button-primary" type="submit" href="">
             Send Message
           </button>
         </form>
         <div id="contact-details-container">
-            <p>Got a question? Contact us</p>
+            <h1 class="primary-heading">Got a question? Contact us</h1>
             <div id="contact-details">
+
+              <!-- placing each characters in a span tag to create a hover evvect -->
                 <p class="fancy word">
                     <span class="space">2</span>
                     <span>M</span>
@@ -133,9 +135,8 @@
       </section>
     </main>
     <footer class="wrapper">
-      <div>
+      <div class="footer-logo">
         <img src="Assets/aesthetic_white.svg" alt="" />
-        <p>Copyright © 2024 Aestheticarch. All Rights Reserved</p>
       </div>
       <div>
         <h4>Our services</h4>
@@ -155,11 +156,12 @@
         <ul>
           <li><a href="/index.html" target="_self">Home</a></li>
           <li><a href="/about.html" target="_self">About</a></li>
-          <li><a href="http://" target="_self">Our projects</a></li>
-          <li><a href="http://" target="_self">Blog</a></li>
-          <li><a href="http://" target="_self">Contact us</a></li>
+          <li><a href="/projects.html" target="_self">Projects</a></li>
+          <li><a href="/clients.html" target="_self">Clients</a></li>
+          <li><a href="/contact-us.html" target="_self">Contact</a></li>
         </ul>
       </div>
+      <p class="copyright">Copyright © 2024 Aestheticarch. All Rights Reserved</p>
     </footer>
   </body>
 </html>

@@ -1,11 +1,19 @@
 #client-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 #client-container > h2{
     font-size: 2rem;
+    text-align: center;
 }
+
+#client-details-container{
+  margin: auto;
+  margin-top: var(--primary-spacing);
+}
+
 
 table.customTable td, table.customTable th {
     border-width: 2px;
@@ -16,4 +24,5 @@ table.customTable td, table.customTable th {
   
   table.customTable thead {
     background-color: #a37ef8;
+    font-size: var(--regular-font-size);
   }

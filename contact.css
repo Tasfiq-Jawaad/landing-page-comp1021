@@ -1,6 +1,8 @@
 #contact-container{
     display: flex;
+    flex-direction: column;
     gap: 62px;
+    margin-top: var(--primary-spacing);
 }
 
 #contact-container > *{
@@ -35,27 +37,24 @@ form > *:not(:last-child){
     margin-bottom: 1rem;
 }
 
-#contact-details-container > p{
-    font-size: 4rem;
-    margin-bottom: 4rem;
+#contact-details-container p{
+    margin-bottom: 2rem;
 }
 
 #contact-details{
     flex-grow: 1;
     text-align: justify;
+    justify-content: center;
 }
 
 #contact-details > p{
-    font-size: 4rem;
+    font-size: var(--regular-font-size);
 }
+
+@media (prefers-reduced-motion: no-preference) {
 
 #contact-details:has(.fancy:hover) .word:not(.fancy:hover){
     opacity: 0.2;
-}
-
-#contact-details:has(.fancy:hover) .word:is(.fancy:hover) span{
-    /* opacity: 0.2; */
-    /* animation: rotate 1s timing-function delay iteration-count direction fill-mode; */
 }
 
 .fancy > span{
@@ -143,6 +142,22 @@ form > *:not(:last-child){
     transform: translate(15%, 15%) rotate(-2deg);
 }
 
+}
 .space{
     margin-right: 1ch;
+}
+
+
+
+@media screen and (min-width: 996px) {
+    #contact-container{
+        display: flex;
+        flex-direction: row;
+        gap: 62px;
+        margin-top: var(--primary-spacing);
+    }
+
+    #contact-details p{
+        font-size: 4rem;
+    }
 }
